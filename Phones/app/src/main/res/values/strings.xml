@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Phones</string>
+    <string name="welcome">Добро пожаловать!</string>
+    <string name="registr">Регистрация</string>
+    <string name="enter_email">Введите email</string>
+    <string name="enter_password">Введите пароль</string>
+    <string name="repeat_password">Повторите пароль</string>
+    <string name="to_registr">ЗАРЕГИСТРИРОВАТЬСЯ</string>
+    <string name="by_number">По номеру</string>
+    <string name="enter">Вход</string>
+    <string name="enter_email_number">Введите email/номер</string>
+    <string name="auto_enter">Входить автоматически</string>
+    <string name="ENTER">ВОЙТИ</string>
+</resources>
