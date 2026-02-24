@@ -11,4 +11,5 @@
     <string name="enter_email_number">Введите email/номер</string>
     <string name="auto_enter">Входить автоматически</string>
     <string name="ENTER">ВОЙТИ</string>
+    <string name="by_email">По email</string>
 </resources>

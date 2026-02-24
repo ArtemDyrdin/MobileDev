@@ -63,7 +63,7 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/by_number"
+                android:text="@string/by_email"
                 android:textColor="@color/purple_200"
                 android:layout_weight="1" />
         </LinearLayout>
@@ -71,6 +71,7 @@
             android:id="@+id/editTextTextEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints=""
             android:hint="@string/enter_email"
             android:inputType="textEmailAddress"
             android:backgroundTint="@color/purple_200"
