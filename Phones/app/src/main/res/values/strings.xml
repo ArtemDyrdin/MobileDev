@@ -12,4 +12,10 @@
     <string name="auto_enter">Входить автоматически</string>
     <string name="ENTER">ВОЙТИ</string>
     <string name="by_email">По email</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_fragment">Home Fragment</string>
+    <string name="profile_fragment">Profile Fragment</string>
+    <string name="profile">Profile</string>
+    <string name="home">Home</string>
 </resources>
