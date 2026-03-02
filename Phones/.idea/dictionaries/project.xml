@@ -2,6 +2,18 @@
   <dictionary name="project">
     <words>
       <w>registr</w>
+      <w>введите</w>
+      <w>логин</w>
+      <w>минимум</w>
+      <w>неверный</w>
+      <w>номер</w>
+      <w>пароли</w>
+      <w>пароль</w>
+      <w>символов</w>
+      <w>совпадают</w>
+      <w>стартовый</w>
+      <w>телефона</w>
+      <w>экран</w>
     </words>
   </dictionary>
 </component>
