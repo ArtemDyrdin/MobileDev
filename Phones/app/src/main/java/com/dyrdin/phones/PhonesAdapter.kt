@@ -11,10 +11,20 @@ class PhonesAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var mPhonesList: ArrayList<PhoneModel> = ArrayList()
 
+    enum class SortOrder { ASC, DESC }
+
     @SuppressLint("NotifyDataSetChanged")
-    fun setupPhones(phonesList: ArrayList<PhoneModel>) {
+    fun setupPhones(phonesList: ArrayList<PhoneModel>, sortBy: String, order: SortOrder = SortOrder.DESC) {
+        val sorted = when (sortBy) {
+            "price" -> phonesList.sortedBy { it.price.replace("$", "").toIntOrNull() ?: 0 }
+            "score" -> phonesList.sortedBy { it.score.toIntOrNull() ?: 0 }
+            "date"  -> phonesList.sortedBy { it.date }
+            "name"  -> phonesList.sortedBy { it.name }
+            else    -> phonesList.sortedBy { it.score.toIntOrNull() ?: 0 }
+        }
+
         mPhonesList.clear()
-        mPhonesList.addAll(phonesList)
+        mPhonesList.addAll(if (order == SortOrder.DESC) sorted.reversed() else sorted)
         notifyDataSetChanged()
     }
 

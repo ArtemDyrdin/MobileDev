@@ -22,4 +22,6 @@
     <string name="launch_price_0">Launch Price: $0</string>
     <string name="launch_date">Launch Date: ---</string>
     <string name="camera_score_0">Camera Score: 0</string>
+    <string name="fromup">↑ По возрастанию</string>
+    <string name="fromdown">↓ По убыванию</string>
 </resources>

@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class HomeFragment : Fragment() {
 
+    private lateinit var onClickListener: () -> Unit
     private val myAdapter = PhonesAdapter()
 
     override fun onCreateView(
@@ -21,6 +23,14 @@ class HomeFragment : Fragment() {
 
         loadData()
 
+        root.findViewById<Button>(R.id.btnAsc).setOnClickListener {
+            myAdapter.setupPhones(ArrayList(PhonesData.phonesArr.toList()), "price", PhonesAdapter.SortOrder.ASC)
+        }
+
+        root.findViewById<Button>(R.id.btnDesc).setOnClickListener {
+            myAdapter.setupPhones(ArrayList(PhonesData.phonesArr.toList()), "price", PhonesAdapter.SortOrder.DESC)
+        }
+
         root.findViewById<RecyclerView>(R.id.recyclerView).layoutManager =
             LinearLayoutManager(requireContext())
 
@@ -30,6 +40,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun loadData() {
-        myAdapter.setupPhones(ArrayList(PhonesData.phonesArr.toList()))
+        myAdapter.setupPhones(ArrayList(PhonesData.phonesArr.toList()), "price", PhonesAdapter.SortOrder.DESC)
     }
 }
