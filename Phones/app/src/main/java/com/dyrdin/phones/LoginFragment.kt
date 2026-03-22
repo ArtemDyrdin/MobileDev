@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseAuth
 
 class LoginFragment : Fragment() {
 
@@ -26,18 +27,20 @@ class LoginFragment : Fragment() {
         val btnLogin = root.findViewById<Button>(R.id.button4)
 
         btnLogin.setOnClickListener {
-            val inputLogin = etLogin.text.toString()
+            val inputLogin = etLogin.text.toString().trim()
             val inputPassword = etPassword.text.toString()
 
-            val savedLogin = PrefManager.getLogin(requireContext())
-            val savedPassword = PrefManager.getPassword(requireContext())
-
-            if (inputLogin == savedLogin && inputPassword == savedPassword) {
-                PrefManager.setAutoLogin(requireContext(), checkBox.isChecked)
-                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-            } else {
-                Toast.makeText(requireContext(), "Неверный логин или пароль", Toast.LENGTH_SHORT).show()
-            }
+            val auth = FirebaseAuth.getInstance()
+            auth.signInWithEmailAndPassword(inputLogin, inputPassword)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        PrefManager.setAutoLogin(requireContext(), checkBox.isChecked)
+                        findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Toast.makeText(requireContext(), exception.localizedMessage, Toast.LENGTH_LONG).show()
+                }
         }
 
         return root

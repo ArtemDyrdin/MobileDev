@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "913949919021",
+    "project_id": "phonerating-ec511",
+    "storage_bucket": "phonerating-ec511.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:913949919021:android:dc77ee87ef85def9d175a4",
+        "android_client_info": {
+          "package_name": "com.dyrdin.phones"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDWrLcFbvjqxKJQzjL8dZiONiIcUxIMtc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

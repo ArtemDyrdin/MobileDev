@@ -12,6 +12,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.toColorInt
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseAuth
 
 class RegistrationFragment : Fragment() {
 
@@ -80,9 +81,18 @@ class RegistrationFragment : Fragment() {
             }
 
             if (isValid) {
-                PrefManager.saveUser(requireContext(), loginInput, password)
-                PrefManager.setAutoLogin(requireContext(), false)
-                findNavController().navigate(R.id.action_registrationFragment_to_homeFragment)
+                val auth = FirebaseAuth.getInstance()
+                auth.createUserWithEmailAndPassword(loginInput, password)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            PrefManager.setUserRegistered(requireContext(), true)
+                            PrefManager.setAutoLogin(requireContext(), false)
+                            findNavController().navigate(R.id.action_registrationFragment_to_homeFragment)
+                        }
+                    }
+                    .addOnFailureListener { exception ->
+                        Toast.makeText(requireContext(), exception.localizedMessage, Toast.LENGTH_LONG).show()
+                    }
             }
         }
 
